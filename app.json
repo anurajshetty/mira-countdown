@@ -8,7 +8,10 @@
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anuraj.miracountdown"
+      "bundleIdentifier": "com.anuraj.miracountdown",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.anuraj.miracountdown",
@@ -25,6 +28,12 @@
     },
     "experiments": {
       "baseUrl": "/mira-countdown"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "058d3c49-c250-4318-b682-4195376ca1fa"
+      }
+    },
+    "owner": "anurajsocial"
   }
 }
