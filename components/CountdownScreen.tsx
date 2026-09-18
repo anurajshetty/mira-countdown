@@ -27,8 +27,6 @@ export default function CountdownScreen({ dueDate }: { dueDate: Date }) {
     (startOfDay(dueDate).getTime() - startOfDay(now).getTime()) / DAY_MS,
   );
 
-  const arrived = days <= 0;
-
   let headline: string;
   let sub: string;
   if (days > 1) {
@@ -44,24 +42,22 @@ export default function CountdownScreen({ dueDate }: { dueDate: Date }) {
     sub = 'one more day to go';
   } else if (days === 0) {
     headline = 'Today';
-    sub = "today's the day";
+    sub = 'the due date is today';
   } else {
     const since = -days;
     headline = String(since);
-    sub = since === 1 ? 'day with Mira' : 'days with Mira';
+    sub = since === 1 ? 'day past the due date' : 'days past the due date';
   }
+
+  const kicker = days > 0 ? 'Counting down to' : days === 0 ? 'The due date is here' : 'Due date passed';
 
   return (
     <View style={styles.container}>
-      <Text style={styles.kicker}>
-        {arrived ? 'She’s here' : 'Counting down to'}
-      </Text>
+      <Text style={styles.kicker}>{kicker}</Text>
       <Text style={styles.name}>Mira</Text>
       <Text style={styles.count}>{headline}</Text>
       <Text style={styles.sub}>{sub}</Text>
-      <Text style={styles.due}>
-        {arrived ? `Born ${formatDueDate(dueDate)}` : `Due ${formatDueDate(dueDate)}`}
-      </Text>
+      <Text style={styles.due}>{`Due ${formatDueDate(dueDate)}`}</Text>
       <StatusBar style="dark" />
     </View>
   );
