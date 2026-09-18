@@ -1,1 +1,1 @@
-{"build":{"production":{}},"cli":{"version":">= 16.0.0"},"submit":{"production":{}}}
+{"build":{"production":{"autoIncrement":true}},"cli":{"version":">= 16.0.0"},"submit":{"production":{}}}
